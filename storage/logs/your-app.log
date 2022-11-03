@@ -1,0 +1,4 @@
+[2022-11-02 16:01:50] development.DEBUG: Got Cloudflare DNS record for home.shadowbane.space: {"id":"bbe3747c55cd366fa6358bf4f1bd931f","zone_id":"a46622e7ecca5465bf5a6fb66ae7764c","zone_name":"shadowbane.space","name":"home.shadowbane.space","type":"A","content":"180.242.196.199","proxied":true,"ttl":1,"modified_on":"2022-11-02T15:09:24.923391Z"}  
+[2022-11-02 16:01:52] development.INFO: Sync completed  
+[2022-11-02 16:02:04] development.DEBUG: Got Cloudflare DNS record for home.shadowbane.space: {"id":"bbe3747c55cd366fa6358bf4f1bd931f","zone_id":"a46622e7ecca5465bf5a6fb66ae7764c","zone_name":"shadowbane.space","name":"home.shadowbane.space","type":"A","content":"180.242.196.199","proxied":true,"ttl":1,"modified_on":"2022-11-02T15:09:24.923391Z"}  
+[2022-11-02 16:02:05] development.INFO: Sync completed  

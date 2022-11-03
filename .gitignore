@@ -1,0 +1,11 @@
+/.phpunit.cache
+/vendor
+/.idea
+/.vscode
+/.vagrant
+/builds/*
+/tests/coverage
+.phpunit.result.cache
+.env
+phpunit.xml
+composer.lock
