@@ -14,13 +14,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Log on PHAR build
-        # ensure you configure the right channel you use
+        // ensure you configure the right channel you use
         config([
             'logging.channels.single.path' => \Phar::running()
                 ? '/var/log/cfddns.log'
-                : storage_path('logs/cfddns.log')
+                : storage_path('logs/cfddns.log'),
         ]);
-
     }
 
     /**

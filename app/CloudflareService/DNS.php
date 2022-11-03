@@ -111,7 +111,7 @@ class DNS
     {
         $result = $this->list($params);
 
-        foreach ($params as $key=>$val) {
+        foreach ($params as $key => $val) {
             $result = $result->where($key, $val);
         }
 

@@ -2,8 +2,8 @@
 
 namespace App\CloudflareService;
 
-use \Exception;
-use \Throwable;
+use Exception;
+use Throwable;
 
 trait CfDataTrait
 {

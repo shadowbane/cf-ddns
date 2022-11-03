@@ -10,10 +10,10 @@ class Ifconfig
     /**
      * @return array
      */
-    #[ArrayShape(['ipAddress' => "string", 'cached' => "bool"])]
+    #[ArrayShape(['ipAddress' => 'string', 'cached' => 'bool'])]
     public function query(): array
     {
-        $baseUrl = "https://ifconfig.co/json";
+        $baseUrl = 'https://ifconfig.co/json';
         $jsonResult = Http::timeout(30)
             ->withHeaders([
                 'Accept' => 'application/json',
@@ -36,7 +36,7 @@ class Ifconfig
      *
      * @return array
      */
-    #[ArrayShape(['ipAddress' => "string", 'cached' => "bool"])]
+    #[ArrayShape(['ipAddress' => 'string', 'cached' => 'bool'])]
     public function get(): array
     {
         if (cache()->has('ip')) {

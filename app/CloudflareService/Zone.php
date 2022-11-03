@@ -13,6 +13,8 @@ class Zone
     public DNS $dns;
 
     /**
+     * @param publicConnector $connector
+     *
      * @throws BindingResolutionException|\Throwable
      */
     public function __construct(
@@ -59,7 +61,7 @@ class Zone
     {
         $result = $this->list($params);
 
-        foreach ($params as $key=>$val) {
+        foreach ($params as $key => $val) {
             $result = $result->where($key, $val);
         }
 

@@ -109,11 +109,12 @@ class SyncDns extends Command
      * Define the command's schedule.
      *
      * @param  Schedule  $schedule
+     *
      * @return void
      */
     public function schedule(Schedule $schedule): void
     {
-         $schedule->command(static::class)
-             ->everyMinute();
+        $schedule->command(static::class)
+            ->everyMinute();
     }
 }

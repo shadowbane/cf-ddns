@@ -45,7 +45,7 @@ abstract class AbstractCloudflareService implements ConnectorInterface
     {
         if (blank($token)) {
             $token = config('cloudflare.token');
-            throw_if(blank($token), new \Exception("Token Not Supplied."));
+            throw_if(blank($token), new \Exception('Token Not Supplied.'));
         }
 
         $this->token = $token;
@@ -64,7 +64,7 @@ abstract class AbstractCloudflareService implements ConnectorInterface
     {
         if (blank($email)) {
             $email = config('cloudflare.email');
-            throw_if(blank($email), new \Exception("Email Not Supplied."));
+            throw_if(blank($email), new \Exception('Email Not Supplied.'));
         }
 
         $this->email = $email;
@@ -82,7 +82,7 @@ abstract class AbstractCloudflareService implements ConnectorInterface
     public function setEndpoint(?string $endpoint): static
     {
         if (blank($endpoint)) {
-            throw_if(blank($endpoint), new \Exception("Endpoint Not Supplied."));
+            throw_if(blank($endpoint), new \Exception('Endpoint Not Supplied.'));
         }
 
         $this->endpoint = $endpoint;
@@ -101,7 +101,7 @@ abstract class AbstractCloudflareService implements ConnectorInterface
     {
         if (blank($domain)) {
             $domain = config('cloudflare.domain');
-            throw_if(blank($domain), new \Exception("Domain Not Supplied."));
+            throw_if(blank($domain), new \Exception('Domain Not Supplied.'));
         }
 
         $this->domain = $domain;
