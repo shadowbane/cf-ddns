@@ -2,6 +2,8 @@ FROM php:8.1-cli-alpine3.15
 
 LABEL maintainer="Adly Shadowbane <adly.shadowbane@gmail.com>"
 
+ARG VERSION=unreleased
+
 # Install composer
 RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
@@ -12,9 +14,9 @@ COPY . /opt/cloudflare-dyndns
 
 # Build the app
 RUN export COMPOSER_ALLOW_SUPERUSER=1 && cd /opt/cloudflare-dyndns && \
-    composer install --no-dev --no-interaction --no-progress --no-scripts --optimize-autoloader
+    composer install
 
-RUN php /opt/cloudflare-dyndns/cfddns app:build -q cfddns
+RUN php /opt/cloudflare-dyndns/cfddns app:build -q --build-version=$VERSION
 
 RUN cp /opt/cloudflare-dyndns/builds/cfddns /usr/bin/cfddns && \
     chmod +x /usr/bin/cfddns
