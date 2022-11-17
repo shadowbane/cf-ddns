@@ -12,7 +12,7 @@ COPY . /opt/cloudflare-dyndns
 
 # Build the app
 RUN export COMPOSER_ALLOW_SUPERUSER=1 && cd /opt/cloudflare-dyndns && \
-    composer install
+    composer install --no-dev --no-interaction --no-progress --no-scripts --optimize-autoloader
 
 RUN php /opt/cloudflare-dyndns/cfddns app:build -q cfddns
 
