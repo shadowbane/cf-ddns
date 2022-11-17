@@ -7,4 +7,5 @@ return [
     'zone' => env('CLOUDFLARE_ZONE', ''),
     'domain' => env('CLOUDFLARE_DOMAIN', ''),
     'record' => env('CLOUDFLARE_RECORD', ''),
+    'proxy' => env('CLOUDFLARE_PROXY', false),
 ];

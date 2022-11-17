@@ -96,7 +96,7 @@ class SyncDns extends Command
             $this->cfRecord = $this->cfApp->zone()->dns()->update(
                 dnsName: $this->domainName,
                 ipAddress: $ipAddr,
-//                proxied: false,
+                proxied: config('cloudflare.proxy'),
             );
         }
 
