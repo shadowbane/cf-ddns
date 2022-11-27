@@ -13,7 +13,7 @@ class Ifconfig
     #[ArrayShape(['ipAddress' => 'string', 'cached' => 'bool'])]
     public function query(): array
     {
-        $baseUrl = 'https://ifconfig.co/json';
+        $baseUrl = 'https://ifconfig.me/all.json';
         $jsonResult = Http::timeout(30)
             ->withHeaders([
                 'Accept' => 'application/json',
@@ -21,10 +21,10 @@ class Ifconfig
             ->get($baseUrl)
             ->json();
 
-        cache()->put('ip', $jsonResult['ip'], now()->addMinutes(5));
+        cache()->put('ip', $jsonResult['ip_addr'], now()->addMinutes(5));
 
         return [
-            'ipAddress' => $jsonResult['ip'],
+            'ipAddress' => $jsonResult['ip_addr'],
             'cached' => false,
         ];
     }
