@@ -54,6 +54,8 @@ class SyncDns extends Command
 
             Log::critical($e->getMessage());
         }
+
+        Log::debug('Memory Usage: '.(memory_get_usage() / 1024 / 1024).' MB || Peak Memory Usage: '.(memory_get_peak_usage() / 1024 / 1024).' MB');
     }
 
     /**
@@ -70,7 +72,7 @@ class SyncDns extends Command
         // we are loading the domain name record to $this->cfRecord, so it won't be loaded for second time.
         // this is useful for endless loop mode, as we're preserving bandwidth and time.
         $this->cfRecord = $this->cfApp->zone()->dns()->find(['name' => $this->domainName]);
-        Log::debug("Got Cloudflare DNS record for {$this->domainName}: {$this->cfRecord->toJson()}");
+        Log::debug("Got Initial Cloudflare DNS record for {$this->domainName}: {$this->cfRecord->toJson()}");
     }
 
     /**
@@ -88,7 +90,8 @@ class SyncDns extends Command
         $ipAddr = $ip['ipAddress'];
 
         $records = $this->cfApp->zone()->dns()->find(['name' => $this->domainName]);
-        $this->info("Got Cloudflare DNS record for {$this->domainName}: {$records->toJson()}".PHP_EOL);
+        Log::debug("Got Cloudflare DNS record for {$this->domainName}: {$records->toJson()}".PHP_EOL);
+        Log::debug("Got Current IP Address: {$ipAddr}".PHP_EOL);
 
         // update the record if it's not same
         if ($this->cfRecord['content'] !== $ipAddr) {
@@ -100,9 +103,7 @@ class SyncDns extends Command
             );
         }
 
-        Log::info('Sync completed');
-
-//        Log::debug('Memory Usage: '.(memory_get_usage() / 1024 / 1024).' MB || Peak Memory Usage: '.(memory_get_peak_usage() / 1024 / 1024).' MB');
+        $this->info('Sync completed');
     }
 
     /**
